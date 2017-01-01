@@ -1,0 +1,70 @@
+html {
+    height: 100%;
+}
+
+body {
+    color: #3a3a3a;
+    font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
+    margin-bottom: -1px;
+    margin-top: -1px;
+    height: 100%;
+}
+
+#info_button {
+    font-size: 24px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+.reading_button {
+    padding: 20px;
+    font-size: 30px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #ddd4bb;
+    margin: 10px;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+a {
+    color: #4A7B9D;
+}
+
+#date {
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-size: 72px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+#date_has_been_adjusted_explanation {
+    display: none;
+    text-align: center;
+}
+
+#reading_buttons {
+    text-align: center;
+}
+
+button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: #3a3a3a;
+}

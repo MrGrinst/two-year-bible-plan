@@ -8,11 +8,28 @@
   <meta name="description" content="Two Year Bible Plan">
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
   <script src="js/papaparse.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="js/BibleInTwoYearsCSV.js"></script>
   <script src="js/scripts.js"></script>
+  <div id="content">
+    <h1 id="date"></h1>
+    <h2 id="date_has_been_adjusted_explanation">
+        *This is yesterday's reading because it's likely you are still awake from yesterday.
+        For today's reading, <a href="#">click here</a>.
+    </h2>
+    <div id="reading_buttons">
+        <button id="old_testament_button" class="reading_button"></button>
+        <button id="new_testament_button" class="reading_button"></button>
+        <button id="psalm_button" class="reading_button"></button>
+        <button id="proverbs_button" class="reading_button"></button>
+    </div>
+    <button id="info_button"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+  </div>
 </body>
 </html>
