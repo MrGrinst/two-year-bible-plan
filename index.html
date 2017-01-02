@@ -6,6 +6,7 @@
 
   <title>Two Year Bible Plan</title>
   <meta name="description" content="Two Year Bible Plan">
+  <link rel="icon" type="image/ico" href="icon.ico">
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,10 +19,11 @@
   <script src="js/BibleInTwoYearsCSV.js"></script>
   <script src="js/scripts.js"></script>
   <div id="content">
-    <h1 id="date"></h1>
+    <div id="top_bar"></div>
+    <h1 id="date"><button class="previous_day"><i class="fa fa-chevron-circle-left"></i></button><button class="next_day"><i class="fa fa-chevron-circle-right"></i></button></h1>
     <h2 id="date_has_been_adjusted_explanation">
         *This is yesterday's reading because it's likely you are still awake from yesterday.
-        For today's reading, <a href="#">click here</a>.
+        For today's reading, <a href="#" class="next_day">click here</a>.
     </h2>
     <div id="reading_buttons">
         <button id="old_testament_button" class="reading_button"></button>
@@ -29,6 +31,15 @@
         <button id="psalm_button" class="reading_button"></button>
         <button id="proverbs_button" class="reading_button"></button>
     </div>
+    <div id="info_details">
+        Based on the <a href="https://akronalliance.org/two-year-bible-reading-plan-2/" target="_blank">Two Year Bible Reading Plan</a> by Akron Alliance Fellowship Church.</br>
+        Using the <a href="http://www.esv.org/about/" target="_blank">ESV Bible translation</a>.</br>
+        Built by <a href="http://kylegrinstead.com" target="_blank">Kyle Grinstead</a>.
+    </div>
+    <iframe id="old_testament_iframe" class="esv_bible_iframe"></iframe>
+    <iframe id="new_testament_iframe" class="esv_bible_iframe"></iframe>
+    <iframe id="psalm_iframe" class="esv_bible_iframe"></iframe>
+    <iframe id="proverbs_iframe" class="esv_bible_iframe"></iframe>
     <button id="info_button"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
   </div>
 </body>

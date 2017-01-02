@@ -11,6 +11,7 @@ body {
     margin-bottom: -1px;
     margin-top: -1px;
     height: 100%;
+    margin: 0;
 }
 
 #info_button {
@@ -18,6 +19,28 @@ body {
     position: fixed;
     right: 10px;
     bottom: 10px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 4;
+}
+
+#info_details {
+    background-color: #ddd4bb;
+    font-size: 18px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    text-align: center;
+    line-height: 26px;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+    z-index: 3;
+}
+
+#info_details.info_details_showing {
+    transform: translateY(0%);
 }
 
 .reading_button {
@@ -34,6 +57,7 @@ body {
   justify-content: center;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 a {
@@ -42,7 +66,40 @@ a {
 
 #date {
     text-align: center;
-    margin: 0;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    margin-top: -95px;
+    z-index: 2;
+}
+
+#date.show_top_bar {
+    top: 0;
+    left: 0;
+    font-size: 40px;
+    margin-top: 0px;
+    transform: translate(0, 0);
+    transition: all 0.5s;
+    padding-top: 6px;
+    padding-left: 15px;
+}
+
+#top_bar {
+    opacity: 0;
+    background-color: #ddd4bb;
+    height: 63px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+#top_bar.show_top_bar {
+    opacity: 1;
+    transition: all 0.5s 0.5s;
 }
 
 h1 {
@@ -56,15 +113,106 @@ h2 {
 #date_has_been_adjusted_explanation {
     display: none;
     text-align: center;
+    position: fixed;
+    top: 50%;
+    margin-top: 54px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+}
+
+.previous_day, .next_day {
+  font-size: 24px;
+  vertical-align: middle;
+  padding: 15px;
+}
+
+a.next_day {
+  font-size: inherit;
+  padding: 0;
 }
 
 #reading_buttons {
-    text-align: center;
+    position: fixed;
+    right: 50%;
+    top: 50%;
+    white-space: nowrap;
+    transform: translate(50%, -50%);
+    z-index: 2;
 }
+
+#reading_buttons.show_top_bar {
+    right: 0;
+    top: 0;
+    transform: translate(0, 0);
+    transition: all 0.5s;
+}
+
+#reading_buttons.show_top_bar .reading_button {
+    padding: 14px;
+    font-size: 20px;
+    margin: 6px;
+    background-color: white;
+    transition: all 0.5s, background-color 0.5s 0.5s, color 0.5s 0.5s;
+}
+
+#reading_buttons.show_top_bar .reading_button.active_first,
+#reading_buttons.show_top_bar .reading_button.active {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+#reading_buttons.show_top_bar .reading_button.active,
+#reading_buttons.show_top_bar .reading_button.no_animation {
+    transition: all 0s;
+}
+
 
 button {
     background-color: white;
     border: none;
     cursor: pointer;
     color: #3a3a3a;
+}
+
+button:focus {
+    outline: 0;
+}
+
+iframe.esv_bible_iframe {
+    display: none;
+    opacity: 0;
+    margin-top: 13px;
+    margin-bottom: -30px;
+    width: 100%;
+    height: calc(100% + 30px);
+    border: none;
+    z-index: 0;
+}
+
+iframe.iframe_showing {
+    display: block;
+    opacity: 1;
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.5s;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+}
+
+@-webkit-keyframes fadeIn { 
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40% { opacity: 0.3; }
+  60% { opacity: 0.5; }
+  80% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40% { opacity: 0.3; }
+  60% { opacity: 0.5; }
+  80% { opacity: 0.9; }
+  100% { opacity: 1; }
 }
