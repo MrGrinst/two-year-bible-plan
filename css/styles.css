@@ -131,7 +131,6 @@ a.next_day {
   font-size: inherit;
   padding: 0;
 }
-
 #reading_buttons {
     position: fixed;
     right: 50%;
@@ -179,18 +178,36 @@ button:focus {
     outline: 0;
 }
 
-iframe.esv_bible_iframe {
+.iframe_container {
     display: none;
     opacity: 0;
-    margin-top: 13px;
-    margin-bottom: -30px;
-    width: 100%;
-    height: calc(100% + 30px);
+    height: 100%;
+}
+
+.esv_bible_iframe {
+  margin-top: 6px;
+  margin-bottom: -30px;
+  margin-left: -10px;
+  margin-right: -10px;
+  width: 70%;
+  height: calc(100% + 30px);
+}
+
+.esv_study_bible_iframe {
+  margin-top: 27px;
+  margin-bottom: 0px;
+  width: 30%;
+  height: 100%;
+}
+
+.esv_bible_iframe,
+.esv_study_bible_iframe {
+    float: left;
     border: none;
     z-index: 0;
 }
 
-iframe.iframe_showing {
+.iframe_container.iframe_showing {
     display: block;
     opacity: 1;
     -webkit-animation-name: fadeIn;
