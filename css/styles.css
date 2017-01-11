@@ -243,6 +243,7 @@ button:focus {
     position: initial;
     margin: initial;
     transform: none;
+    font-size: 24px;
   }
   h2#date_has_been_adjusted_explanation {
     position: initial;
