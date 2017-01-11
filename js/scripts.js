@@ -6,33 +6,11 @@ function readingPlanDataForDay(day) {
     return planData.data[daysFromPlanStartTo(day)];
 }
 
-function setupReadingPlanWithData(data, isAuthorized) {
+function setupReadingPlanWithData(data) {
     $("#old_testament_button").html(data[dataKeys[0]]);
     $("#new_testament_button").html(data[dataKeys[1]]);
     $("#psalms_button").html(data[dataKeys[2]]);
     $("#proverbs_button").html(data[dataKeys[3]]);
-    if (isAuthorized) {
-        $("#old_testament_iframe")[0].src = esvBibleLinkFromReference(data[dataKeys[0]]);
-        $("#old_testament_study_iframe")[0].src = esvStudyBibleLinkFromReference(data[dataKeys[0]]);
-        setTimeout(function() {
-            if (!$("#new_testament_iframe")[0].src) {
-                $("#new_testament_iframe")[0].src = esvBibleLinkFromReference(data[dataKeys[1]]);
-                $("#new_testament_study_iframe")[0].src = esvStudyBibleLinkFromReference(data[dataKeys[1]]);
-            }
-        }, 15000);
-        setTimeout(function() {
-            if (!$("#psalms_iframe")[0].src) {
-                $("#psalms_iframe")[0].src = esvBibleLinkFromReference(data[dataKeys[2]]);
-                $("#psalms_study_iframe")[0].src = esvStudyBibleLinkFromReference(data[dataKeys[2]]);
-            }
-        }, 30000);
-        setTimeout(function() {
-            if (!$("#proverbs_iframe")[0].src) {
-                $("#proverbs_iframe")[0].src = esvBibleLinkFromReference(data[dataKeys[3]]);
-                $("#proverbs_study_iframe")[0].src = esvStudyBibleLinkFromReference(data[dataKeys[3]]);
-            }
-        }, 45000);
-    }
 }
 
 function daysFromPlanStartTo(day) {
@@ -48,10 +26,6 @@ function dayFormatted(day) {
     return day.format('MMMM D, YYYY');
 }
 
-function isAuthorized() {
-    return getParameterByName("authorized") === "true";
-}
-
 function isAfterMidnightButBeforeBedtime(day) {
     return day.hour() < extraTimeToAccountForLateBedtimes();
 }
@@ -62,12 +36,6 @@ function extraTimeToAccountForLateBedtimes() {
         return parseInt(queryBedtime);
     }
     return 4;
-}
-
-function openESVBibleTabForReference(reference) {
-    var iframe = document.createElement('iframe');
-    iframe.src = encodedUrl;
-    document.body.appendChild(iframe);
 }
 
 function getParameterByName(name, url) {
@@ -99,44 +67,8 @@ function showInfoDetails(event) {
     });
 }
 
-function showESVIframe(button, firstButtonClicked, data) {
-    $("#date").addClass("show_top_bar");
-    $("#reading_buttons").addClass("show_top_bar");
-    $("#top_bar").addClass("show_top_bar");
-    $("#date_has_been_adjusted_explanation").hide();
-    $(".previous_day").remove();
-    $(".next_day").remove();
-    var buttonIndex = $(".reading_button").index(button);
-    var associatedIframe = $($(".iframe_container").get(buttonIndex)).find(".esv_bible_iframe")[0];
-    var associatedStudyIframe = $($(".iframe_container").get(buttonIndex)).find(".esv_study_bible_iframe")[0];
-    if (!associatedIframe.src) {
-        associatedIframe.src = esvBibleLinkFromReference(data[dataKeys[buttonIndex]]);
-        associatedStudyIframe.src = esvStudyBibleLinkFromReference(data[dataKeys[buttonIndex]]);
-    }
-    if (!firstButtonClicked) {
-        $(".reading_button").addClass("no_animation");
-    }
-    $(".iframe_container").removeClass("iframe_showing");
-    $(".reading_button").removeClass("active active_first");
-    setTimeout(function() {
-        $(".reading_button").removeClass("no_animation");
-    }, 500);
-    if (firstButtonClicked) {
-        button.addClass("active_first");
-    } else {
-        button.addClass("active");
-    }
-    setTimeout(function() {
-        $($(".iframe_container").get($(".reading_button").index(button))).addClass("iframe_showing");
-    }, firstButtonClicked ? 500 : 0);
-}
-
 function esvBibleLinkFromReference(reference) {
-    return "http://www.esvbible.org/" + encodeURIComponent(reference);
-}
-
-function esvStudyBibleLinkFromReference(reference) {
-    return "http://www.esvbible.org/column/study-column/esv-study-bible/" + encodeURIComponent(reference);
+    return "http://www.esv.org/" + encodeURIComponent(reference);
 }
 
 function setupDateDisplay(adjustedDay, actualDay) {
@@ -147,7 +79,7 @@ function setupDateDisplay(adjustedDay, actualDay) {
 function updateAllWithDay(day) {
     var adjustedDay = dayAdjustedForLateBedtime(day);
     data = readingPlanDataForDay(adjustedDay);
-    setupReadingPlanWithData(data, isAuthorized);
+    setupReadingPlanWithData(data);
     setupDateDisplay(adjustedDay, day);
     daysFromPlanStartTo(adjustedDay) > 0 ? $(".previous_day").show() : $(".previous_day").hide();
     daysFromPlanStartTo(adjustedDay) < 729 ? $(".next_day").show() : $(".next_day").hide();
@@ -182,11 +114,6 @@ $(function() {
 
     var firstButtonClicked = true;
     $(".reading_button").click(function() {
-        if (isAuthorized()) {
-            showESVIframe($(this), firstButtonClicked, data);
-            firstButtonClicked = false;
-        } else {
-            window.open(esvBibleLinkFromReference($(this).text()), "_blank");
-        }
+        window.open(esvBibleLinkFromReference($(this).text()), "_blank");
     });
 });

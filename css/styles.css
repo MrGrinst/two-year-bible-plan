@@ -44,12 +44,12 @@ body {
 }
 
 .reading_button {
-    padding: 20px;
-    font-size: 30px;
+    padding: 16px;
+    font-size: 24px;
     display: inline-block;
     border-radius: 10px;
     background-color: #ddd4bb;
-    margin: 10px;
+    margin: 5px;
 }
 
 #content {
@@ -71,18 +71,18 @@ a {
     top: 50%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
-    margin-top: -95px;
+    margin-top: -80px;
     z-index: 2;
 }
 
 #date.show_top_bar {
     top: 0;
     left: 0;
-    font-size: 40px;
+    font-size: 36px;
     margin-top: 0px;
     transform: translate(0, 0);
     transition: all 0.5s;
-    padding-top: 6px;
+    padding-top: 8px;
     padding-left: 15px;
 }
 
@@ -103,7 +103,7 @@ a {
 }
 
 h1 {
-    font-size: 72px;
+    font-size: 60px;
 }
 
 h2 {
@@ -115,7 +115,7 @@ h2 {
     text-align: center;
     position: fixed;
     top: 50%;
-    margin-top: 54px;
+    margin-top: 50px;
     left: 50%;
     transform: translateX(-50%);
     width: 50%;
@@ -141,16 +141,16 @@ a.next_day {
 }
 
 #reading_buttons.show_top_bar {
-    right: 0;
+    right: 6px;
     top: 0;
     transform: translate(0, 0);
     transition: all 0.5s;
 }
 
 #reading_buttons.show_top_bar .reading_button {
-    padding: 14px;
-    font-size: 20px;
-    margin: 6px;
+    padding: 13px;
+    font-size: 16px;
+    margin: 9px 2px;
     background-color: white;
     transition: all 0.5s, background-color 0.5s 0.5s, color 0.5s 0.5s;
 }
@@ -189,22 +189,11 @@ button:focus {
   margin-bottom: -30px;
   margin-left: -10px;
   margin-right: -10px;
-  width: 70%;
+  width: 100%;
   height: calc(100% + 30px);
-}
-
-.esv_study_bible_iframe {
-  margin-top: 27px;
-  margin-bottom: 0px;
-  width: 30%;
-  height: 100%;
-}
-
-.esv_bible_iframe,
-.esv_study_bible_iframe {
-    float: left;
-    border: none;
-    z-index: 0;
+  float: left;
+  border: none;
+  z-index: 0;
 }
 
 .iframe_container.iframe_showing {
@@ -214,6 +203,60 @@ button:focus {
     -webkit-animation-duration: 0.5s;
     animation-name: fadeIn;
     animation-duration: 0.5s;
+}
+
+@media(max-width: 1060px) {
+  .reading_button {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  #reading_buttons.show_top_bar .reading_button {
+    font-size: 13px;
+    padding: 10px;
+    margin: 6px 1px;
+  }
+
+  #top_bar {
+    height: 50px;
+  }
+
+  h1#date {
+    font-size: 40px;
+    margin-top: -50px;
+  }
+
+  h1#date.show_top_bar {
+    font-size: 28px;
+    padding-left: 10px;
+    padding-top: 7px;
+  }
+
+  h2#date_has_been_adjusted_explanation {
+    font-size: 14px;
+    margin-top: 30px;
+  }
+}
+
+@media(max-width: 800px) {
+  h1#date {
+    position: initial;
+    margin: initial;
+    transform: none;
+  }
+  h2#date_has_been_adjusted_explanation {
+    position: initial;
+    margin: 0 auto;
+    transform: none;
+  }
+  #reading_buttons {
+    position: initial;
+    transform: none;
+  }
+  #reading_buttons .reading_button {
+    display: block;
+    margin: 10px auto;
+  }
 }
 
 @-webkit-keyframes fadeIn { 
