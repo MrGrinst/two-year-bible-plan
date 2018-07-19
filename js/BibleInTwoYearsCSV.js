@@ -168,7 +168,7 @@ Date,Old Testament,New Testament,Psalm,Proverbs\n\
 15-Jun-2017,Deuteronomy 2:1-37,Luke 6:12-19,Psalm 67:4-7,Proverbs 17:7-8\n\
 16-Jun-2017,Deuteronomy 3:1-29,Luke 6:20-38,Psalm 68:1-6,Proverbs 17:9-11\n\
 17-Jun-2017,Deuteronomy 4:1-20,Luke 6:39-49,Psalm 68:7-18,Proverbs 17:12-13\n\
-18-Jun-2017,Deuteronomy 4:21-29,Luke 7:1-10,Psalm 68:19-31,Proverbs 17:14-15\n\
+18-Jun-2017,Deuteronomy 4:21-49,Luke 7:1-10,Psalm 68:19-31,Proverbs 17:14-15\n\
 19-Jun-2017,Deuteronomy 5:1-31,Luke 7:11-23,Psalm 68:32-35,Proverbs 17:16\n\
 20-Jun-2017,Deuteronomy 5:32-6:25,Luke 7:24-35,Psalm 69:1-13,Proverbs 17:17-18\n\
 21-Jun-2017,Deuteronomy 7:1-26,Luke 7:36-50,Psalm 69:14-18,Proverbs 17:19-21\n\
